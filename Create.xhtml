@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateClosetuserTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateClosetuserLabel_userid}" for="userid" />
+                    <h:inputText id="userid" value="#{closetuserController.selected.userid}" title="#{bundle.CreateClosetuserTitle_userid}" required="true" requiredMessage="#{bundle.CreateClosetuserRequiredMessage_userid}"/>
+                    <h:outputLabel value="#{bundle.CreateClosetuserLabel_firstname}" for="firstname" />
+                    <h:inputText id="firstname" value="#{closetuserController.selected.firstname}" title="#{bundle.CreateClosetuserTitle_firstname}" required="true" requiredMessage="#{bundle.CreateClosetuserRequiredMessage_firstname}"/>
+                    <h:outputLabel value="#{bundle.CreateClosetuserLabel_lastname}" for="lastname" />
+                    <h:inputText id="lastname" value="#{closetuserController.selected.lastname}" title="#{bundle.CreateClosetuserTitle_lastname}" required="true" requiredMessage="#{bundle.CreateClosetuserRequiredMessage_lastname}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{closetuserController.create}" value="#{bundle.CreateClosetuserSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{closetuserController.prepareList}" value="#{bundle.CreateClosetuserShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateClosetuserIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
